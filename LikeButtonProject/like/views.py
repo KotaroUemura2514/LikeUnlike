@@ -22,17 +22,17 @@ def like_post(request):
         post_obj = Post.objects.get(id=post_id)
 
         if user in post_obj.liked.all():
-            post.obj.liked.remove(user)
+            post_obj.liked.remove(user)
         else:
             post_obj.liked.add(user)
 
-        like, created = Like.objects.get-or_create(user=user, post_id=post_id)
+        like, created = Like.objects.get_or_create(user=user, post_id=post_id)
 
         if not created:
-            if like.value == 'Like':
-                like.value = 'Unlike'
+            if Like.value == 'Like':
+                Like.value = 'Unlike'
             else:
-                like.value = 'Like'
+                Like.value = 'Like'
 
-        like.save()
+        Like.save()
     return redirect('posts:post-list')

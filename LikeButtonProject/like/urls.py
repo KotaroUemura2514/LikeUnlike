@@ -5,5 +5,5 @@ app_name = 'posts'
 
 urlpatterns = [
     path('', posts_view, name='post-list'),
-    path('like/', like_post, name='like_post'),
+    path('like/', like_post, name='like-post'),
 ]
