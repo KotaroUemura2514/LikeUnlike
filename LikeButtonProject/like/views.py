@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post, Like
 
 # Create your views here.
@@ -29,10 +29,10 @@ def like_post(request):
         like, created = Like.objects.get_or_create(user=user, post_id=post_id)
 
         if not created:
-            if Like.value == 'Like':
-                Like.value = 'Unlike'
+            if like.value == 'Like':
+                like.value = 'Unlike'
             else:
-                Like.value = 'Like'
+                like.value = 'Like'
 
-        Like.save()
+        like.save()
     return redirect('posts:post-list')

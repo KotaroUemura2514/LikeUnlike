@@ -15,7 +15,7 @@
             {% else %}
                 <button class="ui button negative" type='submit'>Unlike</button>
             {% endif %}
+            <strong>{{ obj.liked.all.count }} likes</strong>
          </form>
-         <strong>{{ obj.liked.all.count }} likes</strong>
      {% endfor %}
 {% endblock content %}
